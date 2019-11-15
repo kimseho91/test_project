@@ -5,6 +5,9 @@
        <setting  name="mapUnderscoreToCamelCase"  value="true"/>
     </settings>
     <typeAliases>
-      
+    
+    <typeAlias alias="BugsBean"  type="com.stock.web.sejong.BugsBean"/>
+    <typeAlias alias="SejongProxy"  type="com.stock.web.sejong.SejongProxy"/>
+    
     </typeAliases>
 </configuration>
