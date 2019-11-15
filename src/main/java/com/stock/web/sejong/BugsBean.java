@@ -1,7 +1,5 @@
 package com.stock.web.sejong;
 
-public class SejongUser {
+public class BugsBean {
 
-	
-	
 }
