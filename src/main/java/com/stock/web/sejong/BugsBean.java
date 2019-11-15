@@ -13,5 +13,5 @@ import lombok.NoArgsConstructor;
 public class BugsBean {
 
 	private String bugsseq, title, content, img;
-	
+	//dd
 }
