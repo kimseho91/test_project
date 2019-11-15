@@ -5,9 +5,15 @@
        <setting  name="mapUnderscoreToCamelCase"  value="true"/>
     </settings>
     <typeAliases>
+<<<<<<< HEAD
       <typeAlias alias="Bugs"  type="com.stock.web.bugs.Bugs"/>
       <typeAlias alias="Cgv"  type="com.stock.web.cgv.Cgv"/>
       <typeAlias alias="Naver"  type="com.stock.web.naver.Naver"/>
       <typeAlias alias="Proxy"  type="com.stock.web.pxy.Proxy"/>
+=======
+        <typeAlias alias="bugs" type="com.stock.web.hr.Bugs"/>
+        <typeAlias alias="cgv" type="com.stock.web.hr.Cgv"/>
+        <typeAlias alias="naver" type="com.stock.web.hr.Naver"/>
+>>>>>>> heyryoung
     </typeAliases>
 </configuration>
