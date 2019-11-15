@@ -18,27 +18,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/bugs")
-public class BugsCtrl {
+@RequestMapping("/naver")
+public class NaverCtrl {
 	
-	@Autowired BugsBean bugsbean;
+	@Autowired NaverBean naverbean;
 	@Autowired BugsMapper bugsmapper;
 	@Autowired SejongProxy sejongpxy;
 	@Autowired SejongProxyMap sejongpxymap;
-	@Autowired List<BugsBean> list;
+	@Autowired List<NaverBean> list;
 	
 	private static final Logger logger = LoggerFactory.getLogger(BugsCtrl.class);
 	
 	@GetMapping("/page/{pageNo}/size/{pageSize}")
 	public Map<?,?> listArt(@PathVariable String pageNo, @PathVariable String pageSize){
 		
-		System.out.println("벅스 컨트롤러 들어옴");
-		
 		sejongpxy.setPageNum(sejongpxy.parseInt(pageNo));
 		sejongpxy.setPageSize(sejongpxy.parseInt(pageSize));
 		sejongpxy.paging();
 		list.clear();
-		Supplier<List<BugsBean>> s = () -> bugsmapper.selectAll(sejongpxy);
+		Supplier<List<NaverBean>> s = () -> bugsmapper.selectAllNaver(sejongpxy);
 		
 		List<Integer> pagelist = new ArrayList<>();
 		for( int i=sejongpxy.getStartPage(); i<sejongpxy.getEndPage()+1 ; i++) {

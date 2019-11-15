@@ -5,14 +5,24 @@
 <mapper namespace="com.stock.web.sejong.BugsMapper">
 
 	<select id="countArticle" resultType="string">
-        SELECT COUNT(*) FROM BUGS
+        SELECT COUNT(*) FROM STOCKDB.BUGS
     </select>
     
     <select id="selectAll" resultType="BugsBean" parameterType="SejongProxy">
        	SELECT * 
-   		FROM ARTICLE 
-   		ORDER BY ARTSEQ DESC
+   		FROM STOCKDB.BUGS	
    		LIMIT #{startRow}, #{pageSize}
     </select>
+    
+    <select id="countNaver" resultType="string">
+        SELECT COUNT(*) FROM STOCKDB.NAVER
+    </select>
+    
+    <select id="selectAllNaver" resultType="NaverBean" parameterType="SejongProxy">
+       	SELECT * 
+   		FROM STOCKDB.NAVER	
+   		LIMIT #{startRow}, #{pageSize}
+    </select>
+    
     
 </mapper>

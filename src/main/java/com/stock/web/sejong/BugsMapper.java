@@ -8,7 +8,11 @@ import org.springframework.stereotype.Repository;
 public interface BugsMapper {
 
 	public String countArticle();
+	
+	public String countNaver();
 
 	public List<BugsBean> selectAll(SejongProxy sejongpxy);
-
+	
+	public List<NaverBean> selectAllNaver(SejongProxy sejongpxy);
+	
 }

@@ -44,6 +44,7 @@ auth_vue = {
 		'        </br></br></br></br><a id="a_go_bugs" href="#">벅스 최신곡 리스트</a></br></br></br>        '+
 		'        <a id="a_go_cgv" href="#">CGV 예매 리스트</a></br></br></br>        '+
 		'        <a id="a_go_naver" href="#">Naver 오늘의 단어</a></br></br></br>        '+
+		'	 <div id="right">test</div>'+
 		'    </div>'+
 		'    <div id="btn_login"></div>'+
 		'    <p class="mt-5 mb-3 text-muted">© 2017-2019</p>'+
