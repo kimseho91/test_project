@@ -6,6 +6,7 @@
     </settings>
     <typeAliases>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <typeAlias alias="Bugs"  type="com.stock.web.bugs.Bugs"/>
       <typeAlias alias="Cgv"  type="com.stock.web.cgv.Cgv"/>
       <typeAlias alias="Naver"  type="com.stock.web.naver.Naver"/>
@@ -15,5 +16,11 @@
         <typeAlias alias="cgv" type="com.stock.web.hr.Cgv"/>
         <typeAlias alias="naver" type="com.stock.web.hr.Naver"/>
 >>>>>>> heyryoung
+=======
+    
+    <typeAlias alias="BugsBean"  type="com.stock.web.sejong.BugsBean"/>
+    <typeAlias alias="SejongProxy"  type="com.stock.web.sejong.SejongProxy"/>
+    
+>>>>>>> sejong
     </typeAliases>
 </configuration>
