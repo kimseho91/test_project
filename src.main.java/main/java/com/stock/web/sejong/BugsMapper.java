@@ -1,7 +1,6 @@
 package com.stock.web.sejong;
 
 import java.util.List;
-
 import org.springframework.stereotype.Repository;
 
 @Repository
