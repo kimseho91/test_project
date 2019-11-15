@@ -12,21 +12,21 @@ public enum SQL {
 			break;
 		case CREATE_BUGS:
 			result = "CREATE TABLE STOCKDB.BUGS("
-					+ "BUGSSEQ INT(10) PRIMARY KEY AUTO_INCREMENT,\r\n"
+					+ "BUGSSEQ VARCHAR(10),\r\n"
 					+ "TITLE VARCHAR(30),\r\n"
 					+ "CONTENT VARCHAR(50),\r\n"
 					+ "IMG VARCHAR(50))";
 			break;
 		case CREATE_CGV:
 			result = "CREATE TABLE STOCKDB.CGV("
-					+ "CGVSEQ INT(10) PRIMARY KEY AUTO_INCREMENT,\r\n"
+					+ "CGVSEQ VARCHAR(10),\r\n"
 					+ "TITLE VARCHAR(30),\r\n"
 					+ "CONTENT VARCHAR(50),\r\n"
 					+ "IMG VARCHAR(50))";
 			break;
 		case CREATE_NAVER:
 			result = "CREATE TABLE STOCKDB.NAVER("
-					+ "NAVERSEQ INT(10) PRIMARY KEY AUTO_INCREMENT,\r\n"
+					+ "NAVERSEQ VARCHAR(10),\r\n"
 					+ "TITLE VARCHAR(30),\r\n"
 					+ "CONTENT VARCHAR(50),\r\n"
 					+ "IMG VARCHAR(50))";
