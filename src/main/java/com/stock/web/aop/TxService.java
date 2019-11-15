@@ -9,4 +9,12 @@ public class TxService {
 		return 0;
 	}
 
+	public int writeCgv() {
+		return 0;
+	}
+
+	public int writeNaver() {
+		return 0;
+	}
+
 }

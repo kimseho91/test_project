@@ -1,5 +1,6 @@
 package com.stock.web.aop;
 
+import java.util.Arrays;
 import java.util.Map;
 
 import org.slf4j.Logger;
@@ -25,6 +26,21 @@ public class TxController {
 	@GetMapping("/bugs")
 	public Map<?,?> makeBugs(){
 		int bugsCount = txService.writeBugs();
+		trunk.put(Arrays.asList("bugsCount"),Arrays.asList());
+		return trunk.get();
+	}
+	
+	@GetMapping("/bugs")
+	public Map<?,?> makeCgv(){
+		int cgvCount = txService.writeCgv();
+		trunk.put(Arrays.asList("cgvCount"),Arrays.asList());
+		return trunk.get();
+	}
+	
+	@GetMapping("/bugs")
+	public Map<?,?> makeNaver(){
+		int naverCount = txService.writeNaver();
+		trunk.put(Arrays.asList("naverCount"),Arrays.asList());
 		return trunk.get();
 	}
 }

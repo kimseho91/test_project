@@ -5,6 +5,9 @@
        <setting  name="mapUnderscoreToCamelCase"  value="true"/>
     </settings>
     <typeAliases>
-      
+      <typeAlias alias="Bugs"  type="com.stock.web.bugs.Bugs"/>
+      <typeAlias alias="Cgv"  type="com.stock.web.cgv.Cgv"/>
+      <typeAlias alias="Naver"  type="com.stock.web.naver.Naver"/>
+      <typeAlias alias="Proxy"  type="com.stock.web.pxy.Proxy"/>
     </typeAliases>
 </configuration>
