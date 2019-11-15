@@ -7,5 +7,6 @@
     <typeAliases>
         <typeAlias alias="bugs" type="com.stock.web.hr.Bugs"/>
         <typeAlias alias="cgv" type="com.stock.web.hr.Cgv"/>
+        <typeAlias alias="naver" type="com.stock.web.hr.Naver"/>
     </typeAliases>
 </configuration>

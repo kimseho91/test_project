@@ -1,20 +1,29 @@
 package com.stock.web.hr;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
-import org.jsoup.Connection;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
-import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import lombok.Data;
-
-
+@Lazy
+@RestController
+@RequestMapping("/hr")
 public class HrController {
-
+	@Autowired Map<String, Object>map;
+	@Autowired HrService hrService;
+	
+	@GetMapping("/{targetSite}/{searchWrd}")
+	public Map<String, Object> register(@PathVariable String targetSite,
+			@PathVariable String searchWrd) throws Exception{
+		map.put("targetSite", targetSite);
+		map.put("searchWrd", searchWrd);
+		hrService.crawling(map);
+		map.put("msg", "SUCCESS");
+		return map;		
+	}	
+	
 }

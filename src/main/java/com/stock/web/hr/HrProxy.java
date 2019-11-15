@@ -12,6 +12,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 @Component
 public class HrProxy {
@@ -35,7 +36,7 @@ public class HrProxy {
 		}
 		return proxyList;
 	}
-
+@Transactional
 	public List<Bugs> bugsCrawl() throws Exception {
 
 		List<Bugs> tempList = new ArrayList<Bugs>();
@@ -52,26 +53,21 @@ public class HrProxy {
 		Elements  tempforContent = temp.select("p.artist");
 		Elements  tempforphoto = temp.select("a.thumbnail");
 		
-		int bugsseq = 1;
+		int bugsseq = 0;
+		
 		Consumer<Bugs> b = t -> hrMapper.insertBugsRank(t);		
 		for (Element tempTitle : tempforTitle) {
-			bugs.setBugsseq(String.valueOf(bugsseq));
+			bugs.setBugsseq(String.valueOf(bugsseq+1));
 			bugs.setTitle(tempTitle.text());
 			bugs.setContent(tempforContent.get(bugsseq).text());
 			bugs.setImg(tempforphoto.get(bugsseq).select("img").attr("src"));
+			b.accept(bugs);
 			tempList.add(bugs);
-			hrMapper.insertBugsRank(bugs);
-			//b.accept(tempBugs);
 			bugsseq++;
-		}
-
-		for (Bugs element : tempList) {
-			hrMapper.insertBugsRank(element);
-			//b.accept(element);
 		}
 		return tempList;
 	}	
-	
+@Transactional
 	public List<Cgv> cgvCrawl() throws Exception {
 		
 		List<Cgv> tempList = new ArrayList<Cgv>();
@@ -93,22 +89,17 @@ public class HrProxy {
 		Elements  tempforphoto = temp.select("span.thumb-image");
 		
 				
-		int cgvseq = 1;
-		Consumer<Cgv> b = t -> hrMapper.insertCgvRank(t);		
+		int cgvseq = 0;
+		Consumer<Cgv> c = t -> hrMapper.insertCgvRank(t);		
 		for (Element tempTitle : tempforTitle) {
-			tempCgvs.setCgvseq(String.valueOf(cgvseq));
+			tempCgvs.setCgvseq(String.valueOf(cgvseq+1));
 			tempCgvs.setTitle(tempTitle.text());
 			tempCgvs.setContent(tempforPrecent.get(cgvseq).text() + "/"+tempforTextinfo.get(cgvseq).text());
 			tempCgvs.setImg(tempforphoto.get(cgvseq).select("img").attr("src"));
 			tempList.add(tempCgvs);
-			 hrMapper.insertCgvRank(tempCgvs);
-			//b.accept(tempCgvs);
 			cgvseq++;
 		}
 
-/*		for (Cgv cgv : tempList) {
-			b.accept(cgv);
-		}*/
 		return tempList;
 	}	
 }

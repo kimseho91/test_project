@@ -24,7 +24,7 @@ public class HrService {
 		hrServicelist = (List<?>) pxy.crawl(paramMap);
 		Consumer<Bugs> b = t -> hrMapper.insertBugsRank(t);
 		Consumer<Cgv> c = t -> hrMapper.insertCgvRank(t);
-		//Consumer<Naver> n = t -> hrMapper.insertBugsRank(t);
+		Consumer<Naver> n = t -> hrMapper.insertNaver(t);
 		switch (paramMap.get("targetSite").toString()) {
 		case "Bugs":
 			for (Object bugs : hrServicelist) {
@@ -37,14 +37,13 @@ public class HrService {
 			}			
 			break;
 		case "Naver":
+			for (Object naver : hrServicelist) {
+				n.accept((Naver) naver);
+			}					
 			break;
 		default:
 			break;
 		}
-/*		map.clear();
-		map.put("msg","SUCCESS");
-		
-		return map;*/
 		return null;
 		
 	}
